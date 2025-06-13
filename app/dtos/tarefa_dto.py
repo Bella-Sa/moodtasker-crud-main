@@ -4,7 +4,7 @@ from datetime import datetime
 from app.entities.tarefa_entity import TipoEsforcoEnum, StatusTarefaEnum, ClassificacaoPosTarefaEnum
 
 class TarefaBase(BaseModel):
-    titulo: str = Field(..., min_length=3)
+    titulo: str = Field(..., min_length=5)
     descricao: Optional[str] = None
     data_criacao: Optional[datetime] = None
     data_conclusao: Optional[datetime] = None

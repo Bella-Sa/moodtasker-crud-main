@@ -4,7 +4,7 @@ from datetime import date
 
 class DiaInativoBase(BaseModel):
     data: date
-    motivo: str = Field(..., min_length=3)
+    motivo: str = Field(..., min_length=5)
 
 class DiaInativoCreate(DiaInativoBase):
     usuario_id: int

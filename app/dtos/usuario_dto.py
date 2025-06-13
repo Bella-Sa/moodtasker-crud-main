@@ -4,7 +4,7 @@ from datetime import date
 from app.entities.usuario_entity import HumorEnum
 
 class UsuarioBase(BaseModel):
-    nome: str = Field(..., min_length=3)
+    nome: str = Field(..., min_length=5)
     email: EmailStr
     humor: Optional[HumorEnum] = None
     energia: Optional[int] = None

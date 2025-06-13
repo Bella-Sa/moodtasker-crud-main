@@ -3,7 +3,7 @@ from typing import Optional
 from datetime import datetime
 
 class NotificacaoBase(BaseModel):
-    mensagem: str = Field(..., min_length=3)
+    mensagem: str = Field(..., min_length=5)
     data: Optional[datetime] = None
     usuario_id: int
     lido: Optional[bool] = False 
