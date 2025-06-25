@@ -14,6 +14,9 @@ class UsuarioRepository:
 
     def get_by_email(self, email: str) -> Optional[Usuario]:
         return self.db.query(Usuario).filter(Usuario.email == email).first()
+    
+    def find_by_email(self, email: str) -> Usuario:
+        return self.session.query(Usuario).filter(Usuario.email == email).first()
 
     def create(self, usuario: Usuario) -> Usuario:
         self.db.add(usuario)

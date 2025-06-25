@@ -8,10 +8,13 @@ class UsuarioService:
         self.db = db
 
     def get_all(self) -> List[Usuario]:
-        return self.db.query(Usuario).filter(Usuario.ativo == True).all()
+        return self.db.query(Usuario).filter(Usuario.ativo == True).order_by(Usuario.id).all()
 
     def get_by_id(self, usuario_id: int) -> Optional[Usuario]:
         return self.db.query(Usuario).filter(Usuario.id == usuario_id, Usuario.ativo == True).first()
+    
+    def get_by_email(self, email: str) -> Optional[Usuario]:
+        return self.db.query(Usuario).filter(Usuario.email == email, Usuario.ativo == True).first()
 
     def create(self, usuario_create: UsuarioCreate) -> Usuario:
         usuario = Usuario(**usuario_create.dict())

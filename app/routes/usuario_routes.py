@@ -21,6 +21,11 @@ def buscar_usuario(usuario_id: int, db: Session = Depends(get_db)):
             raise HTTPException(status_code=404, detail="Usuário não encontrado")
         return usuario
 
+@router.get("/email/{email}", response_model=UsuarioRead, status_code=200)
+def get_user_by_email(email: str, db: Session = Depends(get_db)):
+    """Busca um usuário pelo seu e-mail."""
+    controller = UsuarioController(db) 
+    return controller.get_by_email(email)
     
 @router.post("/", response_model=UsuarioRead, status_code=status.HTTP_201_CREATED)
 def criar_usuario(usuario_create: UsuarioCreate, db: Session = Depends(get_db)):
