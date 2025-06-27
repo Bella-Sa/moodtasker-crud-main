@@ -17,6 +17,7 @@ class DiaInativoUpdate(BaseModel):
 
 class DiaInativoRead(DiaInativoBase):
     id: int
+    usuario_id: int
 
     class Config:
         orm_mode = True

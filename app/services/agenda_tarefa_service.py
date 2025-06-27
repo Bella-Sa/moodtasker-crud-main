@@ -8,7 +8,8 @@ class AgendaTarefaService:
         self.db = db
 
     def get_all(self) -> List[AgendaTarefa]:
-        return self.db.query(AgendaTarefa).all()
+        #return self.db.query(AgendaTarefa).all()
+        return self.db.query(AgendaTarefa).filter(AgendaTarefa.tarefa_id.isnot(None)).all()
 
     def get_by_id(self, agenda_id: int) -> Optional[AgendaTarefa]:
         return self.db.query(AgendaTarefa).filter(AgendaTarefa.id == agenda_id).first()
